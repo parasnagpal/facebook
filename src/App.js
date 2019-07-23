@@ -1,6 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+import {Container} from 'reactstrap'
 
 import SideBar from './components/sidebar'
 import Posts from './components/news_feed/posts'
@@ -10,15 +11,13 @@ function App() {
   return (
     <div className="App">
       <Bar/>
+      <Container>
       <div className='d-flex justify-content-around'>
-      <SideBar className='p-4'/>
+      <SideBar className=''/>
       <Posts />
       </div>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        
-        
-      </header>
+      </Container>
+      
     </div>
   );
 }

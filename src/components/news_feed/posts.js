@@ -2,6 +2,8 @@ import React from 'react'
 
 import '../../assets/dist/css/bootstrap.min.css'
 import '../../assets/style/css/style.css'
+import CreatePost from './createpost'
+
 
 class Posts extends React.Component{
   
@@ -16,7 +18,10 @@ class Posts extends React.Component{
 
     render(){
        return(
+         <div className='d-flex flex-column'>
+          <CreatePost/>
           <>{this.post()}</>
+         </div> 
         );
    }    
 };

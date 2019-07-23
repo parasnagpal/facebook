@@ -1,6 +1,24 @@
 .post{
     min-width: 60vw;
+    background-color: white;
+    box-shadow: lightgray 2px 2px 2px;
+    margin-top: 1vh; 
 }
 .nav-item{
-    margin:1em;
+    margin-right:1em;
+    margin-top: 0.4em;
+}
+.navbar{
+    background-color: #4267b2;
+    color: white;
+    font-weight: bold;
+}
+a{
+    color:black ;
+}
+a:hover{
+    text-decoration: unset !important;
+}
+body{
+    background-color: #ebedf0;
 }

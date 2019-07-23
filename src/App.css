@@ -1,5 +1,10 @@
-.App {
-  text-align: center;
+input{
+  border: none;
+  width: 100%;
+}
+input:focus{
+  border:none;
+  outline: none;
 }
 
 .App-logo {

@@ -6,7 +6,7 @@ import '../assets/style/css/style.css'
 class Bar extends React.Component{
   render(){
       return(
-          <Navbar>
+          <Navbar className='navbar'>
               <NavbarBrand>facebook</NavbarBrand>
               <Nav>
                   <NavItem className='nav-item'>Notifications</NavItem>
