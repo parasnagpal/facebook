@@ -1,6 +1,8 @@
 import React from 'react'
 import {Navbar,Nav,NavItem,NavbarBrand} from 'reactstrap'
 
+import '../assets/style/css/style.css'
+
 class Bar extends React.Component{
   render(){
       return(
