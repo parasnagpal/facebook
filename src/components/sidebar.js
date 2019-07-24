@@ -5,9 +5,7 @@ import '../assets/dist/css/bootstrap.min.css'
 import '../assets/style/css/style.css'
 
 class Comp extends React.Component{
-    constructor(props){
-        super(props)
-    }
+    
     render(){
         return(
             <Nav className='flex-column sidebar'>
