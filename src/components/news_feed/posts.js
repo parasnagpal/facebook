@@ -3,6 +3,7 @@ import React from 'react'
 import '../../assets/dist/css/bootstrap.min.css'
 import '../../assets/style/css/style.css'
 import CreatePost from './createpost'
+import PostLayout from './poslayout'
 
 
 class Posts extends React.Component{
@@ -10,7 +11,9 @@ class Posts extends React.Component{
     constructor(props){
       super(props)
       this.state={
-        posts:[]
+        posts:[],
+        likes:0,
+        comments:[]
       }
       this.post=this.post.bind(this)
       this.addpost=this.addpost.bind(this)
@@ -22,16 +25,20 @@ class Posts extends React.Component{
       this.setState({posts})
     }
 
+    
+
     post(){
         let posts=this.state.posts
-        return posts.map((value)=><div className='post' key={value}>{value}</div>)
+    return posts.map((value,index)=>
+                     <PostLayout post={value} key={index} likes={this.state.likes} comments={this.state.comments} />
+                   )
     }
 
     render(){
        return(
          <div className='d-flex flex-column'>
           <CreatePost addpost={this.addpost}/>
-          <div>{this.post()}</div>
+          {this.post()}
          </div> 
         );
    }    

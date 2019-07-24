@@ -4,6 +4,11 @@
     box-shadow: lightgray 2px 2px 2px;
     margin-top: 1vh; 
 }
+.post-head{
+    border-bottom:lightgray 1px solid;
+    font-size: 0.8em;
+    color:rgb(87, 87, 87);
+}
 .nav-item{
     margin-right:1em;
     margin-top: 0.4em;
@@ -22,3 +27,49 @@ a:hover{
 body{
     background-color: #ebedf0;
 }
+.card-header{
+    font-size: 0.8em;
+    color:grey;
+    font-weight: bold;
+}
+.card-body{
+    color:rgb(46, 46, 46);
+    font-size: 0.9em;
+}
+.border-top{
+    border-top: lightgray;
+}
+button.share-post{
+    background: #4267b2b9;
+    color: white;
+    font-weight: bold;
+    font-size: 0.7em;
+}
+button.share-post:hover, button.share-post:active{
+    background-color: #4267b2 !important;
+    box-shadow: none !important;
+}
+
+.icon{
+    color: rgb(138, 138, 138);
+}
+.icon:hover,.icon:active{
+    color: #4267b2;
+    cursor: pointer;
+}
+.s-1{
+    font-size: 1.2em;
+}
+.s-9{
+    font-size: 0.9em;
+}
+.s-7{
+    font-size: 0.7em;
+}
+.gray-back{
+  background: rgb(241, 241, 241);    
+}
+#comment:focus{
+    background: rgb(241,241,241) !important;    
+    box-shadow: none !important;
+  }

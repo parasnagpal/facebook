@@ -36,3 +36,15 @@ input:focus{
     transform: rotate(360deg);
   }
 }
+
+.btn.btn-outline-primary.btn-sm{
+  background-color: unset !important;
+  color: #4267b2;
+  border-color: #4267b2;
+}
+
+.btn.btn-outline-primary.btn-sm:focus{
+   outline: #4267b2 !important;
+   border: none ;
+   box-shadow: none;
+}
