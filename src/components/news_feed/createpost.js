@@ -1,6 +1,6 @@
 import React from 'react'
 import {Button} from 'reactstrap'
-import axios from 'axios'
+//import axios from 'axios'
 
 import '../../assets/style/css/style.css'
 
