@@ -2,7 +2,7 @@ import React from 'react'
 
 
 import {FaThumbsUp,FaShare} from 'react-icons/fa'
-import {Button,Input} from 'reactstrap'
+import {Input} from 'reactstrap'
 import {FaEdit} from 'react-icons/fa'
 import {MdDelete} from 'react-icons/md'
 

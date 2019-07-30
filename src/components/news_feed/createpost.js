@@ -38,7 +38,7 @@ class Comp extends React.Component{
         if(this.state.active)
          return (
          <div className='border-top pt-2'>
-          <Button onClick={this.postHandle} color='primary' className='share-post btn-block' onClick={this.sendPost}>Share</Button>
+          <Button onClick={this.postHandle} color='primary' className='share-post btn-block' >Share</Button>
          </div>)
      }
      

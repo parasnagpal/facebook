@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 
 import '../../assets/dist/css/bootstrap.min.css'
 import '../../assets/style/css/style.css'
@@ -6,30 +7,35 @@ import CreatePost from './createpost'
 import PostLayout from './poslayout'
 
 
+
+
 class Posts extends React.Component{
   
     constructor(props){
       super(props)
       this.state={
-        posts:[],
         likes:0,
         comments:[]
       }
       this.post=this.post.bind(this)
-      this.addpost=this.addpost.bind(this)
+      
     }
-    addpost(post){
-      let posts=this.state.posts
-      posts.push(post)
-      console.log(post)
-      this.setState({posts})
+    componentDidMount(){
+      axios({
+        method:"get",
+        url:'http://localhost:4000/get',
+        headers:{
+        'Content-Type':'application/x-www-form-urlencoded'
+        }
+      })
     }
-
     
 
     post(){
-        let posts=this.state.posts
-    return posts.map((value,index)=>
+
+        let posts=this.props.posts
+      
+        return posts.map((value,index)=>
                      <PostLayout post={value} key={index} likes={this.state.likes} comments={this.state.comments} />
                    )
     }
@@ -37,7 +43,7 @@ class Posts extends React.Component{
     render(){
        return(
          <div className='d-flex flex-column'>
-          <CreatePost addpost={this.addpost}/>
+          <CreatePost addpost={this.props.addpost}/>
           {this.post()}
          </div> 
         );
