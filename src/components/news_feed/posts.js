@@ -23,11 +23,11 @@ class Posts extends React.Component{
     componentDidMount(){
       axios({
         method:"get",
-        url:'http://localhost:4000/get',
+        url:'http://localhost:4000/posts',
         headers:{
         'Content-Type':'application/x-www-form-urlencoded'
         }
-      })
+      }).then(data=>console.log(data))
     }
     
 

@@ -30,8 +30,8 @@ class App extends React.Component{
     <div className="App">
       <Bar/>
       <Container>
-      <div className='d-flex justify-content-around'>
-      <SideBar className=''/>
+      <div className='d-flex justify-content-center'>
+      <SideBar className='col-4'/>
       <Posts posts={this.state.posts['me']} addpost={this.addpost}/>
       </div>
       </Container>

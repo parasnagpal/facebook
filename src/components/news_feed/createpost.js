@@ -1,6 +1,6 @@
 import React from 'react'
 import {Button} from 'reactstrap'
-//import axios from 'axios'
+import axios from 'axios'
 
 import '../../assets/style/css/style.css'
 
@@ -33,6 +33,7 @@ class Comp extends React.Component{
         e.target.parentNode.parentNode.children[0].value=''
         this.props.addpost(this.state.post); 
         this.setState({active:false})
+        
      }
      btn(){
         if(this.state.active)
@@ -60,7 +61,16 @@ class Comp extends React.Component{
      }
 
      componentDidMount(){
-       
+      axios({
+         method:'POST',
+         url:'http://localhost:4000/posts',
+         headers:{
+            'Content-type':'application/json'
+         },
+         data:{
+            name:"paras"
+         }
+      })
      }
 
      render(){ return(

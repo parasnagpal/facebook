@@ -72,4 +72,19 @@ button.share-post:hover, button.share-post:active{
 #comment:focus{
     background: rgb(241,241,241) !important;    
     box-shadow: none !important;
-  }
+}
+.sidebar{
+    margin-top: 1vh;
+    width: 12vw;
+}
+.sidebar .active{
+    background-color: rgb(255, 255, 255);
+    border: 1px lightgray solid;
+}
+.side-text{
+    font-weight: bold;
+    padding:1px;
+    color:gray;
+    font-size: 0.8em;
+
+}

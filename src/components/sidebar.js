@@ -1,5 +1,6 @@
 import React from 'react'
 import {Nav,NavItem} from 'reactstrap'
+import {FaEllipsisH} from 'react-icons/fa'
 
 import '../assets/dist/css/bootstrap.min.css'
 import '../assets/style/css/style.css'
@@ -9,8 +10,9 @@ class Comp extends React.Component{
     render(){
         return(
             <Nav className='flex-column sidebar'>
-                <NavItem>
-                    <a href='/home'>Home</a>
+                <NavItem className='active d-flex justify-content-between'>
+                    <a href='/home' className='side-text'>Home</a>
+                    <FaEllipsisH/>
                 </NavItem>
                 <NavItem>
                     <a href='/profile'>Profile</a>
