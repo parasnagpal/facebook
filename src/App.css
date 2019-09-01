@@ -48,6 +48,10 @@ input:focus{
    border: none ;
    box-shadow: none;
 }
-.layout{
-  
+.login-form{
+   display: inline-flex;
+}
+
+.navbar button{
+  font-size: small;
 }
