@@ -1,11 +1,21 @@
 import React from 'react';
 
+import {Provider} from 'react-redux'
+import {createStore,applyMiddleware} from 'redux'
+import reducer from './redux/reducer'
+
 import './App.css';
-import {Container} from 'reactstrap'
 
 import SideBar from './components/sidebar'
-import Posts from './components/news_feed/posts'
-import Bar from './components/navbar'
+import Home from './redux/redux-components/route'
+
+import './assets/dist/css/bootstrap.min.css'
+import './assets/style/css/style.css'
+
+const store=createStore(
+   reducer,
+   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 
 class App extends React.Component{
  constructor(){
@@ -28,14 +38,9 @@ class App extends React.Component{
   render(){
   return (
     <div className="App">
-      <Bar/>
-      <Container>
-      <div className='d-flex justify-content-center'>
-      <SideBar className='col-4'/>
-      <Posts posts={this.state.posts['me']} addpost={this.addpost}/>
-      </div>
-      </Container>
-      
+    <Provider store={store}>
+      <Home/>
+    </Provider>
     </div>
   );
 }
