@@ -37,7 +37,7 @@ class landingpage extends React.Component{
                 </div>
             </>
         )
-        else return <LoginPage/>
+        else return <LoginPage login={this.props.login}/>
     }
 } 
 export default landingpage

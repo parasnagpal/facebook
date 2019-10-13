@@ -55,3 +55,24 @@ input:focus{
 .navbar button{
   font-size: small;
 }
+.login-signup{
+  
+}
+
+.login{
+  height: 100vh;
+  width:  40vw;
+}
+.signup input{
+  margin-bottom:1%;
+}
+.signup{
+  width:40vw;
+}
+label{
+ 
+}
+.tiny{
+  color: lightslategray;
+  font-size: x-small;
+}
