@@ -15,7 +15,9 @@
 }
 .navbar{
     background-color: #4267b2;
-    color: white;
+}
+.navbar-brand{
+    color: white !important;
     font-weight: bold;
 }
 a{
@@ -87,4 +89,14 @@ button.share-post:hover, button.share-post:active{
     color:gray;
     font-size: 0.8em;
 
+}
+.flex-item{
+    flex: 1 1 0 !important;
+}
+.xs{
+    font-size: x-small;
+}
+.label{
+    color: #ebedf0;
+    font-size: small;
 }
