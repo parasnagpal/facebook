@@ -13,7 +13,7 @@ const form=(props)=>{
                 <input></input>
                 <Label className='label'>Forgotten Password?</Label>
             </FormGroup>
-            <button >Login</button>
+            <button onClick={props.login}>Login</button>
          </Form>
     );
 }

@@ -1,9 +1,15 @@
 import React from 'react'
-
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from 'react-router-dom'
+//components
 import NavBar from './navbar'
 import SideBar from './sidebar'
 import Posts from './news_feed/posts'
-
+//route components
+import FeedPage from './news_feed/feedpage'
 import LoginPage from './login/loginpage'
 
 class landingpage extends React.Component{
@@ -29,15 +35,18 @@ class landingpage extends React.Component{
         console.log(this.props)
         if(this.props.loggedin)
         return(
-            <>
-                <NavBar/>
-                <div className='d-flex justify-content-center layout'>
-                <SideBar className='col-4'/>
-                <Posts posts={this.state.posts['me']} addpost={this.addpost}/>
-                </div>
-            </>
+            <Router>
+                <Switch>
+                    <Route path='/login'>
+                       <LoginPage/>
+                    </Route>   
+                    <Route path='/signup'>
+                        <FeedPage/>
+                    </Route>  
+                </Switch>
+            </Router>
         )
         else return <LoginPage login={this.props.login}/>
     }
-} 
+}   
 export default landingpage

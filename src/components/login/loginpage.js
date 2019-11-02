@@ -4,10 +4,11 @@ import LoginNav from './loginnav'
 import SignupForm from './signupform'
 
 class LoginPage extends React.Component{
+
     render(){
         return(
             <>
-            <LoginNav/>
+            <LoginNav login={this.props.login}/>
             <div className='d-flex justify-content-around login-signup'>
               <div className="flex-item m-3 mt-5">
                 <h4><b>Facebook helps you connect and share with the people in your life.</b></h4>
