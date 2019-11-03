@@ -1,4 +1,5 @@
 import React from 'react'
+import {Redirect} from 'react-router-dom'
 
 import LoginNav from './loginnav'
 import SignupForm from './signupform'
@@ -6,6 +7,8 @@ import SignupForm from './signupform'
 class LoginPage extends React.Component{
 
     render(){
+        if(this.props.loggedin)
+         return <Redirect to="/"/>
         return(
             <>
             <LoginNav login={this.props.login}/>

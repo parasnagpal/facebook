@@ -1,7 +1,8 @@
 import React from 'react'
 import { Form,FormGroup,Label } from 'reactstrap'
 
-const form=(props)=>{
+class form extends React.Component{
+    render(){
     return(
         <Form inline className="d-flex">
             <FormGroup className="mx-2 align-self-start flex-item">
@@ -13,8 +14,9 @@ const form=(props)=>{
                 <input></input>
                 <Label className='label'>Forgotten Password?</Label>
             </FormGroup>
-            <button onClick={props.login}>Login</button>
+            <button onClick={this.props.login}>Login</button>
          </Form>
     );
+    }
 }
 export default form

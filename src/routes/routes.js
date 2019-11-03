@@ -1,5 +1,6 @@
 import LandingPage from '../components/landingPage'
 import LoginPage from '../components/login/loginpage'
+import LoginForm from '../components/login/loginform'
 
 import {Provider} from 'react-redux'
 import {createStore,applyMiddleware} from 'redux'

@@ -1,4 +1,6 @@
 import LandingPage from '../../components/landingPage'
+import Form from '../../components/login/loginform'
+
 import {connect} from 'react-redux'
 import {login,logout} from '../actions'
 
