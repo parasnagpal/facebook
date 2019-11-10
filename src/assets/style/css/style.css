@@ -100,3 +100,11 @@ button.share-post:hover, button.share-post:active{
     color: #ebedf0;
     font-size: small;
 }
+.pill{
+    margin-top:0.5vh;
+    padding: 15% !important;
+    cursor: pointer;
+}
+.d-none{
+    display: none;
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+
 
 import '../../assets/dist/css/bootstrap.min.css'
 import '../../assets/style/css/style.css'
@@ -20,24 +20,17 @@ class Posts extends React.Component{
       this.post=this.post.bind(this)
       
     }
-    componentDidMount(){
-      axios({
-        method:"get",
-        url:'http://localhost:4000/posts',
-        headers:{
-        'Content-Type':'application/x-www-form-urlencoded'
-        }
-      }).then(data=>console.log(data))
-    }
+  
     
 
     post(){
 
         let posts=this.props.posts
-      
+        console.log(posts)
         return posts.map((value,index)=>
-                     <PostLayout post={value} key={index} likes={this.state.likes} comments={this.state.comments} />
-                   )
+            <PostLayout post={value} key={index} likes={this.state.likes} comments={this.state.comments}/>
+          )
+                  
     }
 
     render(){

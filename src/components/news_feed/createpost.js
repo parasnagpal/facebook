@@ -1,11 +1,13 @@
 import React from 'react'
-import {Button} from 'reactstrap'
-import axios from 'axios'
 
-import '../../assets/style/css/style.css'
+import {Button,Badge,Input,Label} from 'reactstrap'
+import {FaImage} from 'react-icons/fa'
+
+
+import {FirebaseContext}  from './feedpage'
 
 class Comp extends React.Component{
-    constructor(){
+   constructor(){
         super()
         this.state={
             active:false,
@@ -14,28 +16,19 @@ class Comp extends React.Component{
         this.btn=this.btn.bind(this)
         this.checkActive=this.checkActive.bind(this)
         this.postHandle=this.postHandle.bind(this)
-        this.sendPost=this.sendPost.bind(this)
-    }
-     sendPost(){
-        console.log('send')
-       /*axios({
-          method:'post',
-          url:'http://localhost:4000'
-          ,
-          'Content-type':'application/json',
-          body:{
-             a:'a'
-          }
-       })*/
-     }
+        this.photoBadge=this.photoBadge.bind(this)
+        this.uploadPhoto=this.uploadPhoto.bind(this)
+   }
+    
 
-     postHandle(e){
+   postHandle(e){
         e.target.parentNode.parentNode.children[0].value=''
         this.props.addpost(this.state.post); 
-        this.setState({active:false})
-        
-     }
-     btn(){
+        this.setState({active:false})   
+   }
+     
+   //renders button
+   btn(){
         if(this.state.active)
          return (
          <div className='border-top pt-2'>
@@ -43,7 +36,7 @@ class Comp extends React.Component{
          </div>)
      }
      
-     checkActive(e){
+   checkActive(e){
        if(e.target.value!=='')
         {
          this.setState({
@@ -58,31 +51,54 @@ class Comp extends React.Component{
                        post:e.target.value
                      })
         } 
-     }
+   }
+   
+   uploadPhoto(e,storage){
+      let file=e.target.files[0];
 
-     componentDidMount(){
-      axios({
-         method:'POST',
-         url:'http://localhost:4000/posts',
-         headers:{
-            'Content-type':'application/json'
-         },
-         data:{
-            name:"paras"
-         }
-      })
-     }
+   }
 
-     render(){ return(
+   photoBadge(){
+
+      return(
+         <Label for="upload">
+            <FirebaseContext.Consumer>
+               {
+                  (firebase)=>{
+                     let storage=firebase.storage()
+                     return(
+                        <>
+                           <Input id='upload' type="file" className="d-none p-5" onChange={(e)=>{this.uploadPhoto(e,storage)}}/>
+                           <Badge className="pill" color="light" pill >
+                              <div className="d-flex">
+                                 <div className="d-flex flex-column justify-content-center mr-1">
+                                 <FaImage/>
+                              </div>
+                              Photo/Video
+                              </div>
+                           </Badge>
+                        </>
+                     )
+                  }
+               }
+            </FirebaseContext.Consumer>
+            
+         </Label>
+      );
+
+   }
+
+   render(){ return(
         <div className="card post">
           <div className="card-header">
              Create Post
           </div>
           <div className="card-body">
-          <input type='text' placeholder='Write Something here...' onChange={this.checkActive}/>
+          <input type='text' placeholder='Write Something here... यहाँ कुछ लिखें ....' onChange={this.checkActive}/>
+          {this.photoBadge()}
           {this.btn()}
          </div>
         </div>
-    );}
+   );}
 };
 export default Comp
