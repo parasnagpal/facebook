@@ -18,7 +18,7 @@ class Posts extends React.Component{
         comments:[]
       }
       this.post=this.post.bind(this)
-      
+      this.image_posts=this.image_posts.bind(this)
     }
   
     
@@ -30,6 +30,13 @@ class Posts extends React.Component{
         return posts.map((value,index)=>
             <PostLayout post={value} key={index} likes={this.state.likes} comments={this.state.comments}/>
           )
+        
+    }
+    image_posts(){
+        let image_posts=this.props.image_posts
+        return image_posts.map((value,index)=>
+            <PostLayout image_post={value} key={index} likes={this.state.likes} comments={this.state.comments}/>
+          )
                   
     }
 
@@ -38,6 +45,7 @@ class Posts extends React.Component{
          <div className='d-flex flex-column'>
           <CreatePost addpost={this.props.addpost}/>
           {this.post()}
+          {this.image_posts()}
          </div> 
         );
    }    

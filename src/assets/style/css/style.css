@@ -108,3 +108,6 @@ button.share-post:hover, button.share-post:active{
 .d-none{
     display: none;
 }
+img{
+    width: fit-content;
+}

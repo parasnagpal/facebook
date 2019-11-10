@@ -55,7 +55,13 @@ class Comp extends React.Component{
    
    uploadPhoto(e,storage){
       let file=e.target.files[0];
-
+      //refernce to storage
+      let storageref=storage.ref('image_posts/'+file.name)
+      //upload file
+      storageref.put(file).then(()=>{
+         console.log('uploaded from blob')
+      })
+      this.props.addpost(file.name,file)
    }
 
    photoBadge(){
