@@ -21,7 +21,7 @@ const config={
 
 firebase.initializeApp(config)
 
-const FirebaseContext=React.createContext(null);
+const FirebaseContext=React.createContext(firebase);
 
 
 class Page extends React.Component{
@@ -64,7 +64,7 @@ class Page extends React.Component{
     }
      
     componentDidMount(){
-
+        firebase.auth().createUserWithEmailAndPassword('paras','alkanagpal')
         let fetched_posts
         firebase.database().ref('/posts').once('value').then((snapshot)=>{
             fetched_posts=snapshot.val()
@@ -77,10 +77,14 @@ class Page extends React.Component{
         firebase.database().ref('/images').once('value').then((snapshot)=>{
             fetched_posts=snapshot.val()
             images=fetched_posts
+            console.log(images);
 
             for(let image of images)
             {
-                firebase.storage().ref('image_posts/'+image).getDownloadURL().then((data)=>{
+                firebase.storage().ref('image_posts/'+image).getDownloadURL().then(async function(url){
+                    var data/*blob*/=await fetch(url)
+                                .then(r=>r.blob()) 
+
                     let image_posts=this.state.image_posts
                     image_posts.push(URL.revokeObjectURL(data))
                     console.log(data)
