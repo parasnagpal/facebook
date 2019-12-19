@@ -73,6 +73,10 @@ input:focus{
 .navbar-font-size{
     font-size: 2.5rem;
 }
+.navbar-font-size-1{
+    font-size: 1.5rem;
+    color: white;
+}
 
 a{
     color:black ;

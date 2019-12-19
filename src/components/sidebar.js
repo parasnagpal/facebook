@@ -17,6 +17,9 @@ class Comp extends React.Component{
                 <NavItem>
                     <a href='/profile'>Profile</a>
                 </NavItem>
+                <NavItem>
+                    <a>Friends</a>
+                </NavItem>
             </Nav>
         );
     }
