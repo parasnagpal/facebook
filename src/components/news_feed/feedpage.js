@@ -2,7 +2,7 @@ import React from  'react'
 import {Redirect}  from 'react-router-dom'
 
 //components
-import NavBar from '../navbar'
+import NavBar from './components/navbar'
 import SideBar from '../sidebar'
 import Posts from './posts'
 

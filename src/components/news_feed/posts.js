@@ -43,7 +43,7 @@ class Posts extends React.Component{
 
     render(){
        return(
-         <div className='d-flex flex-column'>
+         <div className='d-flex flex-column' id='post-panel'>
           <CreatePost addpost={this.props.addpost}/>
           {this.post()}
           {this.image_posts()}
