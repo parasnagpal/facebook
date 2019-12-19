@@ -15,8 +15,10 @@ import '../../assets/style/css/style.css'
 
 const postlayout=(props)=>{
     let date=new Date()
-    
+    console.log(props.image_posts)
+
     if(props.image_post){
+        
         return(
             <div className='post p-2' key={props.key}>
                 <div className='post-head d-flex justify-content-between'>
@@ -27,7 +29,7 @@ const postlayout=(props)=>{
                     </div>
                 </div>
                 <div className='d-flex flex-column p-4'>
-                    <img id='img-post' src={URL.createObjectURL(props.image_post)}/>
+                    <img id='img-post' src={props.image_post}/>
                     <div className=''></div>
                 </div>
                 <div className='d-flex justify-content-around border-top p-2'>
@@ -39,6 +41,7 @@ const postlayout=(props)=>{
             )
 
    } 
+   
    return (<div className='post p-2' key={props.key}>
              <div className='post-head d-flex justify-content-between'>
                <div>{date.toDateString()}</div>

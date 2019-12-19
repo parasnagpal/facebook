@@ -60,8 +60,9 @@ class Comp extends React.Component{
       //upload file
       storageref.put(file).then(()=>{
          console.log('uploaded from blob')
+         this.props.addpost(file.name,file)
       })
-      this.props.addpost(file.name,file)
+      
    }
 
    photoBadge(){

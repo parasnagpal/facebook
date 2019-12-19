@@ -54,11 +54,36 @@ class Page extends React.Component{
             this.setState({posts})
         }
         else{
-            image_posts.push(image)
-            image_names.push(post)
-            let firebase_post={}
-            firebase_post['/images']=image_names
-            firebase.database().ref().update(firebase_post)
+            //fetch currently uploaded image names
+            firebase.database().ref('/images').once('value').then((snapshot)=>{
+                image_names=snapshot.val()
+                image_names.push(post)
+                let firebase_post={}
+                firebase_post['/images']=image_names
+            
+                //update image names 
+                firebase.database().ref().update(firebase_post)
+                //set current state of image names
+                this.setState({
+                    image_names:image_names
+                })
+            })
+            
+            //get uploaded photo
+            firebase.storage().ref('image_posts/'+post).getDownloadURL()
+            .then((data)=>{
+
+                image_posts.push(data)
+                console.log(data)
+                this.setState({
+                    image_posts:image_posts
+                })
+
+            }) 
+            .catch(e=>{
+                console.log(e)
+            })
+
             this.setState({image_posts})
         }
     }
@@ -73,6 +98,7 @@ class Page extends React.Component{
             })
         })
         let images=[]
+        let image_posts=this.state.image_posts
         //fetch file names
         firebase.database().ref('/images').once('value').then((snapshot)=>{
             fetched_posts=snapshot.val()
@@ -81,16 +107,14 @@ class Page extends React.Component{
 
             for(let image of images)
             {
-                firebase.storage().ref('image_posts/'+image).getDownloadURL().then(async function(url){
-                    var data/*blob*/=await fetch(url)
-                                .then(r=>r.blob()) 
+                firebase.storage().ref('image_posts/'+image).getDownloadURL().then((data)=>{
 
-                    let image_posts=this.state.image_posts
-                    image_posts.push(URL.revokeObjectURL(data))
+                    image_posts.push(data)
                     console.log(data)
                     this.setState({
                         image_posts:image_posts
                     })
+
                 }).catch(e=>{
                     console.log(e)
                 })
