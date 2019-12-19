@@ -10,13 +10,13 @@ import Posts from './posts'
 import * as firebase from 'firebase'
 
 const config={
-    apiKey: "AIzaSyAXyAewDH7mp6Sc3SemEAIaS1Be_hnIvE4",
-    authDomain: "facebook-ad20e.firebaseapp.com",
-    databaseURL: "https://facebook-ad20e.firebaseio.com",
-    projectId: "facebook-ad20e",
-    storageBucket: "facebook-ad20e.appspot.com",
-    messagingSenderId: "90830638251",
-    appId: "1:90830638251:web:88b06549f438630e68bbee"
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    databaseURL: process.env.REACT_APP_DB_URL,
+    projectId: process.env.REACT_APP_PROJ_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_ID
 }
 
 firebase.initializeApp(config)
