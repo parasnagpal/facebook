@@ -34,7 +34,7 @@ class form extends React.Component{
             </FormGroup>
             <FormGroup className="mx-2 flex-item">
                 <Label className='label'>Password</Label>
-                <input id='passwordid'></input>
+                <input id='passwordid' type='password'></input>
                 <Label className='label'>Forgotten Password?</Label>
             </FormGroup>
             <FirebaseContext.Consumer>

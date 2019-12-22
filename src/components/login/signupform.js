@@ -28,7 +28,7 @@ const signupform=(props)=>{
                         </Col>
                     </Row>
                     <Input id="email" placeholder="Email or Mobile"/>
-                    <Input id="password" placeholder="New Password"/>
+                    <Input id="password" type='password' placeholder="New Password"/>
                 </FormGroup>
                 <b>Birthday</b>
                 <Input id="dob" type="date"/>
