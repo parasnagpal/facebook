@@ -14,6 +14,9 @@
     .pr-0{
         padding-right: unset !important;
     }
+    #post-panel{
+        max-width: 90vw !important;
+    }
 }
 
 html,body,#root,.App{
