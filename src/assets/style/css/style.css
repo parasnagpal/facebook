@@ -1,46 +1,93 @@
+@media(max-width:768px){
+    .small_display_off{
+        display: none;
+    }
+    .login-signup div.flex-item{
+        max-width: unset !important;
+    }
+    #signup_button{
+        width: 100% !important;
+    }
+    .pl-0{
+        padding-left: 0 !important;
+    }
+    .pr-0{
+        padding-right: unset !important;
+    }
+}
+
+html,body,#root,.App{
+    height:100vh;
+}
+
+.App .login-signup{
+    height: 85vh;
+}
+
 input{
-  border: none;
-  width: 100%;
+    border: none;
+    width: 100%;
 }
 input:focus{
-  border:none;
-  outline: none;
+    border:none;
+    outline: none;
 }
 
 
 .btn.btn-outline-primary.btn-sm{
-  background-color: unset !important;
-  color: #4267b2;
-  border-color: #4267b2;
+    background-color: unset !important;
+    color: #4267b2;
+    border-color: #4267b2;
 }
 
 .btn.btn-outline-primary.btn-sm:focus{
-   outline: #4267b2 !important;
-   border: none ;
-   box-shadow: none;
+    outline: #4267b2 !important;
+    border: none ;
+    box-shadow: none;
 }
+.login-signup div.flex-item{
+    max-width: 35%;
+}
+
 .login-form{
-   display: inline-flex;
+    display: inline-flex;
 }
 
 .navbar button{
-  font-size: small;
+    font-size: small;
+}
+
+.login_nav div{
+    width: 35%;
 }
 
 .login{
-  height: 100vh;
-  width:  40vw;
+    height: 100vh;
+    width:  40vw;
 }
 .signup input{
-  margin-bottom:1%;
+    margin-bottom:1%;
 }
 .signup{
-  width:40vw;
+    width:40vw;
+}
+
+#signup_button{
+    width:50%;
+    background-color: rgb(44, 148, 44);
+    color: white;
+    font-weight: bold;
+    font-size: large;
+}
+#signup_button:hover{
+    background-color: rgb(56, 175, 56);
 }
 
 .tiny{
   color: lightslategray;
   font-size: x-small;
+  position: relative;
+  bottom: 0;
 }
 
 

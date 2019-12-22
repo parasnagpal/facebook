@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form,FormGroup,Label } from 'reactstrap'
+import { Form,FormGroup,Label} from 'reactstrap'
 
 import {FirebaseContext} from '../news_feed/feedpage'
 
@@ -13,13 +13,14 @@ class form extends React.Component{
         e.preventDefault();
         var email=document.getElementById('emailid').value
         var password=document.getElementById('passwordid').value       
-        firebase.auth().createUserWithEmailAndPassword(email,password).catch(error=>{
-            console.log(error.code)
-            console.log(error.message)
-        }).then(()=>{
+        firebase.auth().signInWithEmailAndPassword(email,password)
+        .then(()=>{
             this.props.login()
         })
-        
+        .catch(error=>{
+            console.log(error.code)
+            console.log(error.message)
+        })
     }
 
     render(){

@@ -1,6 +1,16 @@
 import React from 'react'
-import {Form,CustomInput,Input,FormGroup,Button} from 'reactstrap'
+import {Form,CustomInput,Input,FormGroup,Row,Col} from 'reactstrap'
 
+import {FirebaseContext} from '../news_feed/feedpage'
+
+function firebase_signup(firebase){
+    var email=document.getElementById('email').value
+    var password=document.getElementById('password').value
+    firebase.auth().createUserWithEmailAndPassword(email,password).catch(error=>{
+        console.log(error.code)
+        console.log(error.message)
+    })
+}
 
 const signupform=(props)=>{
     return(
@@ -9,8 +19,14 @@ const signupform=(props)=>{
             <h5>It's quick and easy.</h5> 
             <Form>
                 <FormGroup> 
-                    <Input id="fname" placeholder="First Name"/>
-                    <Input id="lname" placeholder="Last Name"/>
+                    <Row>
+                        <Col sm='12' md='6' className="">
+                            <Input id="fname" placeholder="First Name"/>
+                        </Col>
+                        <Col sm='12' md='6' className=''>
+                            <Input id="lname" placeholder="Last Name"/>
+                        </Col>
+                    </Row>
                     <Input id="email" placeholder="Email or Mobile"/>
                     <Input id="password" placeholder="New Password"/>
                 </FormGroup>
@@ -23,7 +39,9 @@ const signupform=(props)=>{
                      <CustomInput type="radio" name="gender" value="other" label="Custom" className="m-2"/> 
                 </Form>
                 <p className="xs">By clicking Sign Up, you agree to our Terms, Data Policy and Cookie Policy. You may receive SMS notifications from us and can opt out at any time.</p>
-                <Button color="success">Signup</Button>
+                <FirebaseContext.Consumer>
+                    {(firebase)=>(<button id='signup_button' className='p-2' onClick={()=>firebase_signup(firebase)}>Sign Up</button>)}
+                </FirebaseContext.Consumer>
             </Form> 
           </>
     );
