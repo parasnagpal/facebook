@@ -33,6 +33,7 @@ class Page extends React.Component{
             image_names:[]
         }
         this.addpost=this.addpost.bind(this)
+        this.postactions=this.postactions.bind(this)
     }
      
     addpost(post,image){
@@ -55,6 +56,7 @@ class Page extends React.Component{
         }
         else{
             //fetch currently uploaded image names
+            //synchronization
             firebase.database().ref('/images').once('value').then((snapshot)=>{
                 image_names=snapshot.val()
                 image_names.push(post)
@@ -74,7 +76,6 @@ class Page extends React.Component{
             .then((data)=>{
 
                 image_posts.push(data)
-                console.log(data)
                 this.setState({
                     image_posts:image_posts
                 })
@@ -87,9 +88,19 @@ class Page extends React.Component{
             this.setState({image_posts})
         }
     }
+
+    postactions(post,code){
+        function like(){
+            console.log(post)
+        }
+        switch(code){
+            default:like()
+        }
+    }
      
     componentDidMount(){
-        firebase.auth().createUserWithEmailAndPassword('paras','alkanagpal')
+        //Step 1:
+        //fetch text posts
         let fetched_posts
         firebase.database().ref('/posts').once('value').then((snapshot)=>{
             fetched_posts=snapshot.val()
@@ -97,31 +108,30 @@ class Page extends React.Component{
                 posts:fetched_posts
             })
         })
+
+        //Step 2:
+        //fetch image posts
         let images=[]
         let image_posts=this.state.image_posts
         //fetch file names
         firebase.database().ref('/images').once('value').then((snapshot)=>{
             fetched_posts=snapshot.val()
             images=fetched_posts
-            console.log(images);
-
+            //fetch urls corresponding to image names
             for(let image of images)
             {
-                firebase.storage().ref('image_posts/'+image).getDownloadURL().then((data)=>{
-
+                firebase.storage().ref('image_posts/'+image).getDownloadURL()
+                .then((data)=>{
                     image_posts.push(data)
-                    console.log(data)
                     this.setState({
                         image_posts:image_posts
                     })
-
-                }).catch(e=>{
+                })
+                .catch(e=>{
                     console.log(e)
                 })
             }   
         })
-        
-        
     } 
 
     render(){
@@ -133,7 +143,7 @@ class Page extends React.Component{
                     <NavBar/>
                     <div className='d-flex justify-content-center layout'>
                         <SideBar className='col-4'/>
-                        <Posts posts={this.state.posts} image_posts={this.state.image_posts} addpost={this.addpost} className='col'/>
+                        <Posts actions={this.postactions} posts={this.state.posts} image_posts={this.state.image_posts} addpost={this.addpost} className='col'/>
                     </div>
                 </FirebaseContext.Provider>
             );
