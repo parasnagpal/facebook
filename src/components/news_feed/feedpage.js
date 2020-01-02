@@ -4,6 +4,7 @@ import {Redirect}  from 'react-router-dom'
 //components
 import NavBar from './components/navbar'
 import SideBar from '../sidebar'
+import RightBar from './components/rightbar'
 import Posts from './posts'
 
 //import firebase
@@ -22,7 +23,7 @@ const config={
 firebase.initializeApp(config)
 
 const FirebaseContext=React.createContext(firebase);
-
+let PostContext
 
 class Page extends React.Component{
     constructor(){
@@ -34,6 +35,7 @@ class Page extends React.Component{
         }
         this.addpost=this.addpost.bind(this)
         this.postactions=this.postactions.bind(this)
+        this.postcontext=this.postcontext.bind(this)
     }
      
     addpost(post,image){
@@ -97,6 +99,21 @@ class Page extends React.Component{
             default:like()
         }
     }
+
+    postcontext(){
+        let obj={
+            data:{
+                posts:this.state.posts,
+                image_posts:this.state.image_posts,
+                image_names:this.state.image_names
+            },
+            actions:{
+                postactions:this.postactions
+            }
+        }
+        PostContext=React.createContext(obj);
+        return PostContext;
+    }
      
     componentDidMount(){
         //Step 1:
@@ -144,6 +161,7 @@ class Page extends React.Component{
                     <div className='d-flex justify-content-center layout'>
                         <SideBar className='col-4'/>
                         <Posts actions={this.postactions} posts={this.state.posts} image_posts={this.state.image_posts} addpost={this.addpost} className='col'/>
+                        <RightBar/>
                     </div>
                 </FirebaseContext.Provider>
             );
@@ -152,4 +170,7 @@ class Page extends React.Component{
 
 export default Page
 
-export{FirebaseContext}
+export{
+    FirebaseContext,
+    PostContext
+}

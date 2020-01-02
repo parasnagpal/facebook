@@ -5,6 +5,7 @@ import {FaThumbsUp,FaShare} from 'react-icons/fa'
 import {Input} from 'reactstrap'
 import {FaEdit} from 'react-icons/fa'
 import {MdDelete} from 'react-icons/md'
+import {PostContext} from './feedpage'
 
 import '../../assets/style/css/style.css'
 
@@ -67,4 +68,4 @@ const postlayout=(props)=>{
     else return TextPost(props);
    
 }
-  export default postlayout
+export default postlayout
