@@ -23,12 +23,12 @@ class Posts extends React.Component{
   
     
 
-    post(){
+    post(x){
 
         let posts=this.props.posts
         console.log(posts)
         return posts.map((value,index)=>
-            <PostLayout post={value} key={index} likes={this.state.likes} comments={this.state.comments}/>
+            <PostLayout actions={x} post={value} key={index} likes={this.state.likes} comments={this.state.comments}/>
           )
         
     }
@@ -45,7 +45,7 @@ class Posts extends React.Component{
        return(
          <div className='d-flex flex-column' id='post-panel'>
           <CreatePost addpost={this.props.addpost}/>
-          {this.post()}
+          {this.post(this.props.actions)}
           {this.image_posts()}
          </div> 
         );

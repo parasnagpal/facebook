@@ -101,7 +101,7 @@ class Comp extends React.Component{
              Create Post
           </div>
           <div className="card-body">
-          <input type='text' placeholder='Write Something here... यहाँ कुछ लिखें ....' onChange={this.checkActive}/>
+          <input type='text' placeholder='Write Something here...\n यहाँ कुछ लिखें ....' onChange={this.checkActive}/>
           {this.photoBadge()}
           {this.btn()}
          </div>
