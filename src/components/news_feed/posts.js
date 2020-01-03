@@ -1,35 +1,28 @@
 import React from 'react'
 
-
 import '../../assets/dist/css/bootstrap.min.css'
 import '../../assets/style/css/style.css'
 import CreatePost from './createpost'
 import PostLayout from './poslayout'
 
 
-
-
 class Posts extends React.Component{
   
     constructor(props){
       super(props)
-      this.state={
-        likes:0,
-        comments:[]
-      }
+    
       this.post=this.post.bind(this)
       this.image_posts=this.image_posts.bind(this)
     }
-  
     
-
-    post(x){
+    //function for separating individual post components
+    post(postactions){
 
         let posts=this.props.posts
-        console.log(posts)
-        return posts.map((value,index)=>
-            <PostLayout actions={x} post={value} key={index} likes={this.state.likes} comments={this.state.comments}/>
-          )
+        return posts.map(
+          (post,index)=>
+              <PostLayout actions={postactions} post={post} key={index}/>
+        )
         
     }
     image_posts(){

@@ -29,27 +29,42 @@ class Comp extends React.Component{
      
    //renders button
    btn(){
-        if(this.state.active)
+      if(this.state.active)
          return (
-         <div className='border-top pt-2'>
-          <Button onClick={this.postHandle} color='primary' className='share-post btn-block' >Share</Button>
-         </div>)
-     }
+            <div className='border-top pt-2'>
+               <Button onClick={this.postHandle} color='primary' className='share-post btn-block' >Share</Button>
+            </div>
+         );   
+   }
      
    checkActive(e){
-       if(e.target.value!=='')
+      //activate state
+      if(e.target.value!=='')
         {
-         this.setState({
-                         active:true,
-                         post:e.target.value
-                       })
+            this.setState({
+               active:true,
+               post:
+               {
+                  postid:0,
+                  text:e.target.value,
+                  likes:0,
+                  comments:{},
+               }
+            })
         }
-        else if(this.state.active)
+      //deactivate state  
+      else if(this.state.active)
         {
-        this.setState({
-                       active:false,
-                       post:e.target.value
-                     })
+            this.setState({
+               active:false,
+               post:
+               {
+                  postid:0,
+                  text:e.target.value,
+                  likes:0,
+                  comments:{},
+               }
+            })
         } 
    }
    

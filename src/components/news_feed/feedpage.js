@@ -50,6 +50,7 @@ class Page extends React.Component{
             image_names=[]    
         if(!image)
         {
+            post.postid=posts.length
             posts.push(post)
             let firebase_post={};
             firebase_post['/posts']=posts
@@ -94,6 +95,7 @@ class Page extends React.Component{
     postactions(post,code){
         function like(){
             console.log(post)
+
         }
         switch(code){
             default:like()

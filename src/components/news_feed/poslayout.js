@@ -47,11 +47,11 @@ function TextPost(props){
                 </div>
                 
                 <div className='d-flex flex-column p-4'>
-                     <>{props.post}</>
+                     <>{(props.post.text)?props.post.text:props.post}</>
                      <div className=''></div>
                 </div>
                 <div className='d-flex justify-content-around border-top p-2'>
-                    <div className='icon d-flex s-9'><FaThumbsUp className='align-self-center' onClick={()=>{props.actions(props.post)}}/><div className='align-self-center'>  Like</div></div> 
+                    <div className='icon d-flex s-9' onClick={()=>{props.actions(props.post)}}><FaThumbsUp className='align-self-center'/><div className='align-self-center'>  Like</div></div> 
                     <div className='icon s-9'><FaShare /> Share</div> 
                 </div>
                 <div><Input type='text' className='rounded-pill s-7 gray-back' id='comment' placeholder='Comment..' /></div>
