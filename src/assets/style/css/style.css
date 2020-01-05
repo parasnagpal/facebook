@@ -169,10 +169,21 @@ button.share-post:hover, button.share-post:active{
 .icon{
     color: rgb(138, 138, 138);
 }
-.icon:hover,.icon:active{
+.icon:active{
     color: #4267b2;
     cursor: pointer;
 }
+.like-comment{
+    width: 50%;
+    padding: 0.4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.like-comment:hover{
+    background-color: rgb(240, 240, 240);
+}
+
 .s-1{
     font-size: 1.2em;
 }

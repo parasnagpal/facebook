@@ -25,7 +25,7 @@ function ImagePost(props){
                     <img id='img-post' src={props.image_post}/>
                     <div className=''></div>
                 </div>
-                <div className='d-flex justify-content-around border-top p-2'>
+                <div className='d-flex justify-content-around border-top p-3'>
                     <div className='icon d-flex s-9'><FaThumbsUp className='align-self-center'/><div className='align-self-center'>  Like</div></div> 
                     <div className='icon s-9'><FaShare /> Share</div> 
                 </div>
@@ -54,8 +54,18 @@ function TextPost(props){
                     {(props.post.likes)?<>{props.post.likes} likes</>:<></>}     
                 </div>
                 <div className='d-flex justify-content-around border-top p-2'>
-                    <div className='icon d-flex s-9' onClick={()=>{props.actions(props.post)}}><FaThumbsUp className='align-self-center'/><div className='align-self-center'>  Like</div></div> 
-                    <div className='icon s-9'><FaShare /> Share</div> 
+                    <div className='icon like-comment s-9' onClick={()=>{props.actions(props.post)}}>
+                       
+                        <FaThumbsUp className='align-self-center'/>
+                        <div className='align-self-center p-1'>Like</div>
+                        
+                    </div> 
+                    <div className='icon like-comment s-9'>
+                        
+                        <FaShare /> 
+                        <div className='p-1'>Share</div>
+
+                    </div> 
                 </div>
                 <div><Input type='text' className='rounded-pill s-7 gray-back' id='comment' placeholder='Comment..' /></div>
             </div>
