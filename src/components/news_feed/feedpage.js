@@ -1,5 +1,5 @@
 import React from  'react'
-import {Redirect}  from 'react-router-dom'
+import {Redirect, useParams}  from 'react-router-dom'
 
 //components
 import NavBar from './components/navbar'
@@ -36,6 +36,7 @@ class Page extends React.Component{
         this.addpost=this.addpost.bind(this)
         this.postactions=this.postactions.bind(this)
         this.postcontext=this.postcontext.bind(this)
+        this.like=this.like.bind(this);
     }
      
     addpost(post,image){
@@ -92,13 +93,26 @@ class Page extends React.Component{
         }
     }
 
-    postactions(post,code){
-        function like(){
-            console.log(post)
+    like(post){
+        console.log(post)
+        console.log(this.state)
+        //fetch post
+        let like_updated_post=this.state.posts[post.postid];
+        //update like
+        like_updated_post.likes++;
+        let updated_posts=this.state.posts;
+        updated_posts[post.postid]=like_updated_post
+        //update state
+        this.setState({
+            posts:updated_posts
+        })
+        firebase.database().ref('/posts').set(updated_posts)
+    }
 
-        }
+    postactions(post,code){
+        
         switch(code){
-            default:like()
+            default:this.like(post)
         }
     }
 
