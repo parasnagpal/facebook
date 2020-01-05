@@ -41,8 +41,10 @@ function TextPost(props){
                 <div className='post-head d-flex justify-content-between'>
                   <div>{date.toDateString()}</div>
                   <div>
+
                       <MdDelete className='icon mx-2 s-1'/>
                       <FaEdit className='icon s-1'/>
+
                   </div>
                 </div>
                 
@@ -67,7 +69,7 @@ function TextPost(props){
 
                     </div> 
                 </div>
-                <div><Input type='text' className='rounded-pill s-7 gray-back' id='comment' placeholder='Comment..' /></div>
+                <div><Input type='text' className='rounded-pill s-7 gray-back' id='comment' placeholder='Write a comment..' /></div>
             </div>
     );
 }
