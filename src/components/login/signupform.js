@@ -1,7 +1,8 @@
 import React from 'react'
 import {Form,CustomInput,Input,FormGroup,Row,Col} from 'reactstrap'
 
-import {FirebaseContext} from '../news_feed/feedpage'
+//import {FirebaseContext} from '../news_feed/feedpage'
+import {FirebaseContext} from '../firebase/index'
 
 function firebase_signup(firebase){
     var email=document.getElementById('email').value
