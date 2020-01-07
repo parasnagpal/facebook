@@ -1,10 +1,9 @@
 import React from 'react'
 
 
-import {FaThumbsUp,FaShare} from 'react-icons/fa'
+import {FaRegThumbsUp,FaShare,FaEdit} from 'react-icons/fa'
 import {Input} from 'reactstrap'
-import {FaEdit} from 'react-icons/fa'
-import {MdDelete} from 'react-icons/md'
+import {MdDelete,MdChatBubbleOutline} from 'react-icons/md'
 import {PostContext} from './feedpage'
 
 import '../../assets/style/css/style.css'
@@ -26,8 +25,8 @@ function ImagePost(props){
                     <div className=''></div>
                 </div>
                 <div className='d-flex justify-content-around border-top p-3'>
-                    <div className='icon d-flex s-9'><FaThumbsUp className='align-self-center'/><div className='align-self-center'>  Like</div></div> 
-                    <div className='icon s-9'><FaShare /> Share</div> 
+                    <div className='icon d-flex s-9'><FaRegThumbsUp className='align-self-center'/><div className='align-self-center'>  Like</div></div> 
+                    <div className='icon s-9'><MdChatBubbleOutline /> Share</div> 
                 </div>
                 <div><Input type='text' className='rounded-pill s-7 gray-back' id='comment' placeholder='Comment..' /></div>
             </div>
@@ -58,13 +57,13 @@ function TextPost(props){
                 <div className='d-flex justify-content-around border-top p-2'>
                     <div className='icon like-comment s-9' onClick={()=>{props.actions(props.post)}}>
                        
-                        <FaThumbsUp className='align-self-center'/>
+                        <FaRegThumbsUp className='align-self-center'/>
                         <div className='align-self-center p-1'>Like</div>
                         
                     </div> 
                     <div className='icon like-comment s-9'>
                         
-                        <FaShare /> 
+                        <MdChatBubbleOutline /> 
                         <div className='p-1'>Share</div>
 
                     </div> 
