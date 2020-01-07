@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form,FormGroup,Label} from 'reactstrap'
 
-import {FirebaseContext} from '../news_feed/feedpage'
+import {FirebaseContext} from '../firebase/index'
 
 class form extends React.Component{
     constructor(props){
