@@ -109,6 +109,10 @@ input:focus{
     margin-right:1em;
     margin-top: 0.4em;
 }
+.inactive{
+    color:rgba(0, 0, 0, 0.568);
+}
+
 .navbar{
     background-color: #4267b2;
 }
@@ -124,7 +128,6 @@ input:focus{
 }
 .navbar-font-size-1{
     font-size: 1.5rem;
-    color: white;
 }
 
 .rightbar{

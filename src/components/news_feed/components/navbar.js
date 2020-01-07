@@ -24,9 +24,9 @@ class NavBar extends React.Component{
                     </div>
                 </NavbarBrand>
                 <Nav>
-                    <NavItem className='nav-item navbar-font-size-1'><FaUserFriends/></NavItem>
-                    <NavItem className='nav-item navbar-font-size-1'><MdNotifications/></NavItem>
-                    <NavItem className='nav-item navbar-font-size-1'><FaFacebookMessenger/></NavItem>
+                    <NavItem className='nav-item navbar-font-size-1 inactive'><FaUserFriends/></NavItem>
+                    <NavItem className='nav-item navbar-font-size-1 inactive'><MdNotifications/></NavItem>
+                    <NavItem className='nav-item navbar-font-size-1 inactive'><FaFacebookMessenger/></NavItem>
                 </Nav>
             </Navbar>
         );
