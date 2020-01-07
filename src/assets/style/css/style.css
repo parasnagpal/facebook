@@ -107,7 +107,6 @@ input:focus{
 }
 .nav-item{
     margin-right:1em;
-    margin-top: 0.4em;
 }
 .inactive{
     color:rgba(0, 0, 0, 0.568);
@@ -122,6 +121,7 @@ input:focus{
 }
 .navbar.navbar_feedpage{
     justify-content: space-around;
+    padding: 0%;
 }
 .navbar-font-size{
     font-size: 2.5rem;
