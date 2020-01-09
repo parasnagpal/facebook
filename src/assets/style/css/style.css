@@ -158,6 +158,16 @@ body{
 .border-top{
     border-top: lightgray;
 }
+.comment{
+    background-color: rgba(231, 231, 231, 0.719);
+    border-radius: 5em;
+    font-size: small;
+    padding: .4em;
+    margin: 1em;
+}
+.comment-name{
+    font-weight: bold;
+}
 button.share-post{
     background: #4267b2b9;
     color: white;

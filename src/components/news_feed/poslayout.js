@@ -27,7 +27,20 @@ function separate_comments_as_components(comments){
         comment_array.push(comments[comment])
         console.log(comment)
     }
-    return comment_array.map((comment)=><div>{comment.name}{comment.text}</div>);
+    return (   
+            <div className='border-top'>
+                {
+                comment_array.map((comment)=>
+                <div className='m-2'>
+                    <span className='comment'>
+                        <span className='comment-name m-2'>{comment.name}</span>
+                        <span className='comment-text m-2'>{comment.text}</span>
+                    </span>
+                </div>
+                )
+                }
+            </div>
+            );
 }
 
 //Image post layout 
