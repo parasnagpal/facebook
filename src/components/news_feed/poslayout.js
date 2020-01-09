@@ -8,6 +8,28 @@ import {PostContext} from './feedpage'
 
 import '../../assets/style/css/style.css'
 
+//eventlistener onchange
+function comment(e,props){
+    if(e.keyCode==13){
+        props.post.comment={
+            name:'null',
+            text:e.target.value
+        }
+        props.actions(props.post,'C')
+    }
+}
+
+//separate
+function separate_comments_as_components(comments){
+    let comment_array=[];
+    console.log(comments)
+    for(let comment in comments){
+        comment_array.push(comments[comment])
+        console.log(comment)
+    }
+    return comment_array.map((comment)=><div>{comment.name}{comment.text}</div>);
+}
+
 //Image post layout 
 function ImagePost(props){
     let date=new Date()
@@ -36,11 +58,13 @@ function ImagePost(props){
                     <div className='icon s-9'>
                         
                         <MdChatBubbleOutline /> 
-                        <div>Share</div>
+                        <div>Comment</div>
                     
                     </div> 
                 </div>
-                <div><Input type='text' className='rounded-pill s-7 gray-back' id='comment' placeholder='Comment..' /></div>
+                <div>
+                    <Input type='text' className='rounded-pill s-7 gray-back' id='comment' placeholder='Comment..' />
+                </div>
             </div>
     );
 }
@@ -67,7 +91,7 @@ function TextPost(props){
                     {(props.post.likes)?<>{props.post.likes} likes</>:<></>}     
                 </div>
                 <div className='d-flex justify-content-around border-top p-2'>
-                    <div className='icon like-comment s-9' onClick={()=>{props.actions(props.post)}}>
+                    <div className='icon like-comment s-9' onClick={()=>{props.actions(props.post,'L')}}>
                        
                         <FaRegThumbsUp className='align-self-center'/>
                         <div className='align-self-center p-1'>Like</div>
@@ -76,11 +100,17 @@ function TextPost(props){
                     <div className='icon like-comment s-9'>
                         
                         <MdChatBubbleOutline /> 
-                        <div className='p-1'>Share</div>
+                        <div className='p-1'>Comment</div>
 
                     </div> 
                 </div>
-                <div><Input type='text' className='rounded-pill s-7 gray-back' id='comment' placeholder='Write a comment..' /></div>
+                <div>
+                    {(props.post.comments)?separate_comments_as_components(props.post.comments):<></>}
+                </div>
+                <div>
+                    <Input type='text' className='rounded-pill s-7 gray-back' id='comment' placeholder='Write a comment..' 
+                    onKeyUp={(e)=>comment(e,props)}/>
+                </div>
             </div>
     );
 }
@@ -89,6 +119,7 @@ function TextPost(props){
 
 const postlayout=(props)=>{
 
+    console.log(props)
     if(props.image_post)
         return ImagePost(props);
    

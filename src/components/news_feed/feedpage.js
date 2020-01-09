@@ -27,6 +27,7 @@ class Page extends React.Component{
         this.postactions=this.postactions.bind(this)
         this.postcontext=this.postcontext.bind(this)
         this.like=this.like.bind(this);
+        this.comment=this.comment.bind(this);
     }
      
     addpost(post,image){
@@ -84,8 +85,6 @@ class Page extends React.Component{
     }
 
     like(post){
-        console.log(post)
-        console.log(this.state)
         //fetch post
         let like_updated_post=this.state.posts[post.postid];
         //update like
@@ -98,11 +97,33 @@ class Page extends React.Component{
         })
         firebase.database().ref('/posts').set(updated_posts)
     }
+   
+    comment(post,comment_data){
+        //fetch post
+        let comment_updated_post=this.state.posts[post.postid];
+    
+        //update comment
+        comment_updated_post.comments[Date()]=comment_data; 
+        delete comment_updated_post.comment;
+        let updated_posts=this.state.posts;
+        updated_posts[post.postid]=comment_updated_post
+        //update state
+        this.setState({
+            posts:updated_posts
+        },()=>{
+            console.log(this.state.posts)
+        })
+        
+        firebase.database().ref('/posts').set(updated_posts)
+    }
 
     postactions(post,code){
-        
+
         switch(code){
-            default:this.like(post)
+            case 'L':this.like(post);
+                     break;
+            case 'C':this.comment(post,post.comment)
+                     break;            
         }
     }
 
