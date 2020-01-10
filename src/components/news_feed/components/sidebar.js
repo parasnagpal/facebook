@@ -2,9 +2,6 @@ import React from 'react'
 import {Nav,NavItem} from 'reactstrap'
 import {FaEllipsisH} from 'react-icons/fa'
 
-import '../assets/dist/css/bootstrap.min.css'
-import '../assets/style/css/style.css'
-
 class Comp extends React.Component{
     
     render(){

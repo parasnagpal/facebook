@@ -1,7 +1,5 @@
 import React from 'react'
 
-import '../../assets/dist/css/bootstrap.min.css'
-import '../../assets/style/css/style.css'
 import CreatePost from './createpost'
 import PostLayout from './poslayout'
 

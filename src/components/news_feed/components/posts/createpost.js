@@ -4,7 +4,7 @@ import {Button,Badge,Input,Label} from 'reactstrap'
 import {FaImage} from 'react-icons/fa'
 
 
-import {FirebaseContext}  from './feedpage'
+import {FirebaseContext}  from '../../feedpage'
 
 class Comp extends React.Component{
    constructor(){

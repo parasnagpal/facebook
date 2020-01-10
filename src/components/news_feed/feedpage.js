@@ -3,9 +3,9 @@ import {Redirect, useParams}  from 'react-router-dom'
 
 //components
 import NavBar from './components/navbar'
-import SideBar from '../sidebar'
+import SideBar from './components/sidebar'
 import RightBar from './components/rightbar'
-import Posts from './posts'
+import Posts from './components/posts/posts'
 
 //import firebase
 import Firebase,{FirebaseContext} from '../firebase/index'

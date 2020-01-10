@@ -6,7 +6,7 @@ import reducer from './redux/reducer'
 
 import './App.css';
 
-import SideBar from './components/sidebar'
+import SideBar from './components/news_feed/components/sidebar'
 import Home from './redux/redux-components/route'
 
 import './assets/dist/css/bootstrap.min.css'

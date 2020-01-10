@@ -1,12 +1,10 @@
 import React from 'react'
 
 
-import {FaRegThumbsUp,FaShare,FaEdit} from 'react-icons/fa'
+import {FaRegThumbsUp,FaEdit} from 'react-icons/fa'
 import {Input} from 'reactstrap'
 import {MdDelete,MdChatBubbleOutline} from 'react-icons/md'
-import {PostContext} from './feedpage'
-
-import '../../assets/style/css/style.css'
+import {PostContext} from '../../feedpage'
 
 //eventlistener onchange
 function comment(e,props){
