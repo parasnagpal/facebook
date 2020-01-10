@@ -1,8 +1,8 @@
 import React from 'react'
 import {Redirect} from 'react-router-dom'
 
-import LoginNav from './loginnav'
-import SignupForm from './signupform'
+import LoginNav from './components/loginnav'
+import SignupForm from './components/signupform'
 
 class LoginPage extends React.Component{
 

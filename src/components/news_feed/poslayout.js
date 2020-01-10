@@ -10,7 +10,7 @@ import '../../assets/style/css/style.css'
 
 //eventlistener onchange
 function comment(e,props){
-    if(e.keyCode==13){
+    if(e.keyCode===13){
         props.post.comment={
             name:'null',
             text:e.target.value

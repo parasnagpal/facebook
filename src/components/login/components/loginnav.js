@@ -1,6 +1,6 @@
 import React from 'react'
 import {Navbar,NavbarBrand} from 'reactstrap'
-import LoginForm from './loginform'
+import LoginForm from '../loginform'
 
 class LoginNav extends React.Component{
 
