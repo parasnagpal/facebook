@@ -4,6 +4,7 @@ import {Navbar,Nav,NavItem,NavbarBrand,Input,InputGroup,InputGroupAddon,Button} 
 import {MdNotifications} from 'react-icons/md'
 import {FaFacebookMessenger,FaUserFriends,FaSearch,FaFacebookSquare} from 'react-icons/fa'
 
+import * as firebase from 'firebase'
 
 class NavBar extends React.Component{
     constructor(){
@@ -23,11 +24,16 @@ class NavBar extends React.Component{
                     </InputGroup>
                     </div>
                 </NavbarBrand>
-                <Nav>
-                    <NavItem className='nav-item navbar-font-size-1 inactive'><FaUserFriends/></NavItem>
-                    <NavItem className='nav-item navbar-font-size-1 inactive'><MdNotifications/></NavItem>
-                    <NavItem className='nav-item navbar-font-size-1 inactive'><FaFacebookMessenger/></NavItem>
-                </Nav>
+                <span className="d-flex flex-row align-items-center">
+                    <Nav className="mx-2">
+                        <NavItem className="navbar-navs">Home</NavItem>
+                    </Nav>
+                    <Nav>
+                        <NavItem className='nav-item navbar-font-size-1 inactive'><FaUserFriends/></NavItem>
+                        <NavItem className='nav-item navbar-font-size-1 inactive'><MdNotifications/></NavItem>
+                        <NavItem className='nav-item navbar-font-size-1 inactive'><FaFacebookMessenger/></NavItem>
+                    </Nav>
+                </span>
             </Navbar>
         );
     }
