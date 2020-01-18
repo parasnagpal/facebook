@@ -146,7 +146,7 @@ input:focus{
     margin-left: 2vw;
 }
 .friend-suggestions-image{
-    width:10%;
+    width:4vw;
     border-radius: 100%;
 }
 .suggestions{
@@ -266,5 +266,5 @@ img{
 }
 
 #post-panel{
-    width: 50vw;
+    width: 50vw !important;
 }
