@@ -15,7 +15,7 @@
         padding-right: unset !important;
     }
     #post-panel{
-        max-width: 90vw !important;
+        width: 90vw !important;
     }
 }
 
@@ -269,7 +269,7 @@ img{
 }
 
 #post-panel{
-    width: 50vw !important;
+    width: 50vw;
 }
 
 .s1{
