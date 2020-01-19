@@ -4,10 +4,25 @@ import {Form,CustomInput,Input,FormGroup,Row,Col} from 'reactstrap'
 //import {FirebaseContext} from '../news_feed/feedpage'
 import {FirebaseContext} from '../../firebase/index'
 
-function firebase_signup(firebase){
+function firebase_signup(e,firebase,props){
+    e.preventDefault();
     var email=document.getElementById('email').value
     var password=document.getElementById('password').value
-    firebase.auth().createUserWithEmailAndPassword(email,password).catch(error=>{
+    var name=document.getElementById('fname').value+document.getElementById('lname').value
+
+    firebase.auth().createUserWithEmailAndPassword(email,password)
+    .then((user)=>{
+        console.log(user)
+        firebase.auth().signInWithEmailAndPassword(email,password)
+        .then(()=>{
+            let user=firebase.auth().currentUser
+            user.updateProfile({
+                displayName:name
+            })
+            props.login()
+        })
+    })
+    .catch(error=>{
         console.log(error.code)
         console.log(error.message)
     })
@@ -41,7 +56,7 @@ const signupform=(props)=>{
                 </Form>
                 <p className="xs">By clicking Sign Up, you agree to our Terms, Data Policy and Cookie Policy. You may receive SMS notifications from us and can opt out at any time.</p>
                 <FirebaseContext.Consumer>
-                    {(firebase)=>(<button id='signup_button' className='p-2' onClick={()=>firebase_signup(firebase)}>Sign Up</button>)}
+                    {(firebase)=>(<button id='signup_button' className='p-2' onClick={(e)=>firebase_signup(e,firebase,props)}>Sign Up</button>)}
                 </FirebaseContext.Consumer>
             </Form> 
           </>
