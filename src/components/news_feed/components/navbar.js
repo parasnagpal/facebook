@@ -26,6 +26,9 @@ class NavBar extends React.Component{
                 </NavbarBrand>
                 <span className="d-flex flex-row align-items-center">
                     <Nav className="mx-2">
+                        <NavItem className="navbar-navs">
+                            {(firebase.auth().currentUser.displayName)?firebase.auth().currentUser.displayName:0}
+                        </NavItem>
                         <NavItem className="navbar-navs">Home</NavItem>
                     </Nav>
                     <Nav>

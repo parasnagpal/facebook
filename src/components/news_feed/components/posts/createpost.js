@@ -49,6 +49,7 @@ class Comp extends React.Component{
                   text:e.target.value,
                   likes:0,
                   comments:{},
+                  date:Date()
                }
             })
         }
@@ -63,6 +64,7 @@ class Comp extends React.Component{
                   text:e.target.value,
                   likes:0,
                   comments:{},
+                  date:Date()
                }
             })
         } 
