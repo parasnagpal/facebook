@@ -27,7 +27,7 @@ class Posts extends React.Component{
         let image_posts=this.props.image_posts
         console.log(image_posts)
         return image_posts.map((value,index)=>
-            <PostLayout image_post={value} key={index} likes={this.state.likes} comments={this.state.comments}/>
+            <PostLayout image_post={value} key={index} />
           )
                   
     }

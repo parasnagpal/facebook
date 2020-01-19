@@ -85,7 +85,7 @@ function TextPost(props){
     return (
             <div className='post p-2' key={props.key}>
                 <div className='post-head d-flex justify-content-between'>
-                  <div>{date.toDateString()}</div>
+                  <div>{(props.post.date)?props.post.date:date.toDateString()}</div>
                   <div>
 
                       <MdDelete className='icon mx-2 s-1'/>
