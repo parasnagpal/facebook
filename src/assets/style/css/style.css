@@ -88,13 +88,16 @@ input:focus{
 }
 
 .tiny{
-  color: lightslategray;
-  font-size: x-small;
-  position: relative;
-  bottom: 0;
+    color: lightslategray;
+    font-size: x-small;
+    position: relative;
+    bottom: 0;
 }
 
-
+#label-createpost{
+    color: lightslategray;
+    margin-bottom: 0;
+}
 
 .post{
     background-color: white;
