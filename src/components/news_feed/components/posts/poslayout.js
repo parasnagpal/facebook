@@ -4,13 +4,13 @@ import React from 'react'
 import {FaRegThumbsUp,FaEdit} from 'react-icons/fa'
 import {Input} from 'reactstrap'
 import {MdDelete,MdChatBubbleOutline} from 'react-icons/md'
-import {PostContext} from '../../feedpage'
+import * as firebase from 'firebase'
 
 //eventlistener onchange
 function comment(e,props){
     if(e.keyCode===13){
         props.post.comment={
-            name:'null',
+            name:firebase.auth().currentUser.displayName,
             text:e.target.value
         }
         props.actions(props.post,'C')

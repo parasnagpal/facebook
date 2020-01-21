@@ -103,6 +103,8 @@ class Page extends React.Component{
         let comment_updated_post=this.state.posts[post.postid];
     
         //update comment
+        if(!comment_updated_post.comments)
+            comment_updated_post.comments={}
         comment_updated_post.comments[Date()]=comment_data; 
         delete comment_updated_post.comment;
         let updated_posts=this.state.posts;
