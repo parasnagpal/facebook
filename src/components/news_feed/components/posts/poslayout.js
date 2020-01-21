@@ -14,6 +14,7 @@ function comment(e,props){
             text:e.target.value
         }
         props.actions(props.post,'C')
+        e.target.value='';
     }
 }
 

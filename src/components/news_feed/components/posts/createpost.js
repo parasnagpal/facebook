@@ -123,13 +123,15 @@ class Comp extends React.Component{
           <div className="card-header">
              Create Post
           </div>
-          <div className="card-body">
+          <div className="card-body pb-1">
           <label id='label-createpost' for='post-lines' classname='createpost-label'>यहाँ कुछ लिखें ....</label>   
           <input id='post-lines' type='text' placeholder='Write Something here... ' 
           onChange={this.checkActive} onFocus={()=>{document.getElementById('label-createpost').style.visibility='hidden'}}
           onBlur={this.blur}/>
-          {this.photoBadge()}
-          {this.btn()}
+          <div className='border-top'>
+            {this.photoBadge()}
+            {this.btn()}
+          </div>
          </div>
         </div>
    );}
