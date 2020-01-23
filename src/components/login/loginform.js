@@ -15,7 +15,7 @@ class form extends React.Component{
         var password=document.getElementById('passwordid').value       
         firebase.auth().signInWithEmailAndPassword(email,password)
         .then(()=>{
-            this.props.login()
+            this.props.login();
         })
         .catch(error=>{
             console.log(error.code)

@@ -3,12 +3,15 @@ import {Redirect} from 'react-router-dom'
 
 import LoginNav from './components/loginnav'
 import SignupForm from './components/signupform'
+//import AuthState from '../auth/index'
 
 class LoginPage extends React.Component{
 
     render(){
+        
+        console.log()
         if(this.props.loggedin)
-         return <Redirect to="/"/>
+          return <Redirect to="/"/>
         return(
             <>
             <LoginNav login={this.props.login}/>
@@ -18,7 +21,7 @@ class LoginPage extends React.Component{
                 <img src={require("../../assets/data/login.png")} alt="..."/>
               </div>
               <div className='d-flex flex-column justify-content-center signup flex-item m-3 mt-5'>
-                 <SignupForm/>
+                 <SignupForm login={this.props.login}/>
               </div>
             </div>
             <div className='tiny'>Facebook © 2019</div>
