@@ -109,6 +109,9 @@ input:focus{
     font-size: 0.8em;
     color:rgb(87, 87, 87);
 }
+.post-name{
+    font-size: large;
+}
 .nav-item{
     margin-right:1em;
 }

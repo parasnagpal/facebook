@@ -83,18 +83,19 @@ function ImagePost(props){
 //text post layout
 function TextPost(props){
     let date=new Date()
+    console.log(props)
     return (
             <div className='post p-2' key={props.key}>
                 <div className='post-head d-flex justify-content-between'>
-                  <div>{(props.post.date)?props.post.date:date.toDateString()}</div>
-                  <div>
-
-                      <MdDelete className='icon mx-2 s-1'/>
-                      <FaEdit className='icon s-1'/>
-
-                  </div>
+                    <div>
+                        <b className='post-name'>{(props.post.name)?<>{props.post.name}</>:<>unknown</>}</b>
+                        <div>{(props.post.date)?props.post.date:date.toDateString()}</div>
+                    </div>
+                    <div>
+                        <MdDelete className='icon mx-2 s-1'/>
+                        <FaEdit className='icon s-1'/>
+                    </div>
                 </div>
-                
                 <div className='d-flex flex-column p-4'>
                     <>{(props.post.text)?props.post.text:props.post}</>
                     <div className=''></div>
@@ -103,17 +104,13 @@ function TextPost(props){
                     {(props.post.likes)?<>{props.post.likes} likes</>:<></>}     
                 </div>
                 <div className='d-flex justify-content-around border-top p-2'>
-                    <div className='icon like-comment s-9' onClick={()=>{props.actions(props.post,'L')}}>
-                       
+                    <div className='icon like-comment s-9' onClick={()=>{props.actions(props.post,'L')}}>   
                         <FaRegThumbsUp className='align-self-center'/>
                         <div className='align-self-center p-1'>Like</div>
-                        
                     </div> 
                     <div className='icon like-comment s-9'>
-                        
                         <MdChatBubbleOutline /> 
                         <div className='p-1'>Comment</div>
-
                     </div> 
                 </div>
                 <div>
@@ -121,7 +118,7 @@ function TextPost(props){
                 </div>
                 <div>
                     <Input type='text' className='rounded-pill s-7 gray-back' id='comment' placeholder='Write a comment..' 
-                    onKeyUp={(e)=>comment(e,props)}/>
+                     onKeyUp={(e)=>comment(e,props)}/>
                 </div>
             </div>
     );

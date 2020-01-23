@@ -3,8 +3,8 @@ import React from 'react'
 import {Button,Badge,Input,Label} from 'reactstrap'
 import {FaImage} from 'react-icons/fa'
 
-
 import {FirebaseContext}  from '../../feedpage'
+import * as firebase from 'firebase'
 
 class Comp extends React.Component{
    constructor(){
@@ -39,13 +39,13 @@ class Comp extends React.Component{
    }
      
    checkActive(e){
-      //activate state
-      if(e.target.value!=='')
+      if(e.target.value!=='' || this.state.active)
         {
             this.setState({
                active:true,
                post:
                {
+                  name:firebase.auth().currentUser.displayName,
                   postid:0,
                   text:e.target.value,
                   likes:0,
@@ -54,21 +54,6 @@ class Comp extends React.Component{
                }
             })
         }
-      //deactivate state  
-      else if(this.state.active)
-        {
-            this.setState({
-               active:false,
-               post:
-               {
-                  postid:0,
-                  text:e.target.value,
-                  likes:0,
-                  comments:{},
-                  date:Date()
-               }
-            })
-        } 
    }
 
    blur(){
@@ -120,20 +105,20 @@ class Comp extends React.Component{
 
    render(){ return(
         <div className="card post">
-          <div className="card-header">
-             Create Post
-          </div>
-          <div className="card-body pb-1">
-          <label id='label-createpost' for='post-lines' classname='createpost-label'>यहाँ कुछ लिखें ....</label>   
-          <input id='post-lines' type='text' placeholder='Write Something here... ' 
-          onChange={this.checkActive} onFocus={()=>{document.getElementById('label-createpost').style.visibility='hidden'}}
-          onBlur={this.blur}/>
-          <div className='border-top'>
-            {this.photoBadge()}
-            {this.btn()}
-          </div>
+            <div className="card-header">
+               Create Post
+            </div>
+            <div className="card-body pb-1">
+               <label id='label-createpost' for='post-lines' classname='createpost-label'>यहाँ कुछ लिखें ....</label>   
+               <input id='post-lines' type='text' placeholder='Write Something here... ' 
+                onChange={this.checkActive} onFocus={()=>{document.getElementById('label-createpost').style.visibility='hidden'}}
+                onBlur={this.blur}/>
+               <div className='border-top'>
+                  {this.photoBadge()}
+                  {this.btn()}
+               </div>
+            </div>
          </div>
-        </div>
    );}
 };
 export default Comp
