@@ -255,6 +255,9 @@ button.share-post:hover, button.share-post:active{
 .xs{
     font-size: x-small;
 }
+.s{
+    font-size: small;
+}
 .label{
     color: #ebedf0;
     font-size: small;
@@ -279,16 +282,26 @@ img{
     font-size: small;
 }
 
-.cover-photo-container{
-    width: 80%;    
+.cover-photo-container{   
     height: 250px;
 }
 .cover-photo{
     width:100%;
     height: -webkit-fill-available;
 }
+.cover-photo-footer{
+    background-color: white;
+}
 .profile-photo-enlarged{
     border-radius: 100%;
-    width:75px;
+    width:170px;
     height:auto;
+    position: relative;
+    bottom: 130px;
+}
+.flex-grow-1{
+    flex-grow: 1;
+}
+.flex-grow-2{
+    flex-grow: 2;
 }
