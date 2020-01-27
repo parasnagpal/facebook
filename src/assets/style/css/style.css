@@ -305,3 +305,7 @@ img{
 .flex-grow-2{
     flex-grow: 2;
 }
+.post-image{
+    width:10%;
+    border-radius: 100%;
+}

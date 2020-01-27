@@ -84,14 +84,18 @@ function ImagePost(props){
 function TextPost(props){
     let date=new Date()
     console.log(props)
+    let default_='https://art-u2.infcdn.net/articles_uploads/2/2094/Design%20Personal%20Logo%20Online.png';
     return (
             <div className='post p-2' key={props.key}>
                 <div className='post-head d-flex justify-content-between'>
-                    <div>
-                        <b className='post-name'>{(props.post.name)?<>{props.post.name}</>:<>unknown</>}</b>
-                        <div>{(props.post.date)?props.post.date:date.toDateString()}</div>
+                    <div className='d-flex'>
+                        <img src={(props.post.image)?props.post.image:default_} className='post-image'/>
+                        <div className='d-flex flex-column ml-2'>
+                            <b className='post-name'>{(props.post.name)?<>{props.post.name}</>:<>unknown</>}</b>
+                            <div>{(props.post.date)?props.post.date:date.toDateString()}</div>
+                        </div>
                     </div>
-                    <div>
+                    <div className='align-self-end'>
                         <MdDelete className='icon mx-2 s-1'/>
                         <FaEdit className='icon s-1'/>
                     </div>
