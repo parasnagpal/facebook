@@ -109,8 +109,8 @@ class Comp extends React.Component{
                Create Post
             </div>
             <div className="card-body pb-1">
-               <label id='label-createpost' for='post-lines' classname='createpost-label'>यहाँ कुछ लिखें ....</label>   
-               <input id='post-lines' type='text' placeholder='Write Something here... ' 
+               <label id='label-createpost' for='post-lines' classname='createpost-label'>Write Something here...</label>   
+               <input id='post-lines' type='text' placeholder='यहाँ कुछ लिखें .... ' 
                 onChange={this.checkActive} />
                <div className='border-top'>
                   {this.photoBadge()}
