@@ -18,7 +18,7 @@ class Comp extends React.Component{
         this.postHandle=this.postHandle.bind(this)
         this.photoBadge=this.photoBadge.bind(this)
         this.uploadPhoto=this.uploadPhoto.bind(this)
-        this.blur=this.blur.bind(this)
+
    }
     
 
@@ -54,13 +54,13 @@ class Comp extends React.Component{
                }
             })
         }
+        if(document.getElementById('post-lines').value!='')
+            document.getElementById('label-createpost').style.visibility='hidden'; 
+        else
+            document.getElementById('label-createpost').style.visibility='unset';
    }
 
-   blur(){
-      if(document.getElementById('post-lines').value=='')
-         document.getElementById('label-createpost').style.visibility='unset';
-   }
-   
+
    uploadPhoto(e,storage){
       let file=e.target.files[0];
       //refernce to storage
@@ -111,8 +111,7 @@ class Comp extends React.Component{
             <div className="card-body pb-1">
                <label id='label-createpost' for='post-lines' classname='createpost-label'>यहाँ कुछ लिखें ....</label>   
                <input id='post-lines' type='text' placeholder='Write Something here... ' 
-                onChange={this.checkActive} onFocus={()=>{document.getElementById('label-createpost').style.visibility='hidden'}}
-                onBlur={this.blur}/>
+                onChange={this.checkActive} />
                <div className='border-top'>
                   {this.photoBadge()}
                   {this.btn()}
