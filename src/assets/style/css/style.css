@@ -298,9 +298,10 @@ img{
     height:auto;
     position: relative;
     bottom: 130px;
+    border:5px white solid;
 }
-.flex-grow-1{
-    flex-grow: 1;
+.flex-grow-3{
+    flex-grow: 3;
 }
 .flex-grow-2{
     flex-grow: 2;
@@ -308,4 +309,10 @@ img{
 .post-image{
     width:10%;
     border-radius: 100%;
+}
+.mr-0{
+    margin-right: 0 !important;
+}
+.ml-0{
+    margin-left: 0 !important;
 }
