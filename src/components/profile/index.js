@@ -46,7 +46,7 @@ class Profile extends React.Component{
                                 <div className='flex-grow-3'>
                                     <CreatePost/>
                                     <b className="s">Posts</b>
-                                    <div className='post m-2 mr-0'>ds</div>
+                                    <div className='post m-2 mr-0'>No Posts Yet</div>
                                 </div>
                             </div>
 
