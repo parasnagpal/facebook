@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-import {FaRegThumbsUp,FaEdit} from 'react-icons/fa'
+import {FaRegThumbsUp,FaEdit,FaEllipsisH} from 'react-icons/fa'
 import {Input} from 'reactstrap'
 import {MdDelete,MdChatBubbleOutline} from 'react-icons/md'
 import * as firebase from 'firebase'
@@ -96,8 +96,7 @@ function TextPost(props){
                         </div>
                     </div>
                     <div className='align-self-end'>
-                        <MdDelete className='icon mx-2 s-1'/>
-                        <FaEdit className='icon s-1'/>
+                        <FaEllipsisH className="icon mx-2 s-1"/>
                     </div>
                 </div>
                 <div className='d-flex flex-column p-4'>
