@@ -104,10 +104,10 @@ function TextPost(props){
                     <div className=''></div>
                 </div>
                 <div className='xs'>
-                    {(props.post.likes)?<>{props.post.likes} likes</>:<></>}     
+                    {(props.post.likes)?<>{props.post.likes || props.post.likes.length} likes</>:<></>}     
                 </div>
                 <div className='d-flex justify-content-around border-top p-2'>
-                    <div className='icon like-comment s-9' onClick={()=>{props.actions(props.post,'L')}}>   
+                    <div className='icon like-comment s-9' onClick={()=>{props.actions(props.post,'L',firebase.auth().currentUser.displayName)}}>   
                         <FaRegThumbsUp className='align-self-center'/>
                         <div className='align-self-center p-1'>Like</div>
                     </div> 

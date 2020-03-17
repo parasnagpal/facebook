@@ -48,7 +48,7 @@ class Comp extends React.Component{
                   name:firebase.auth().currentUser.displayName,
                   postid:0,
                   text:e.target.value,
-                  likes:0,
+                  likes:[],
                   comments:{},
                   date:Date()
                }

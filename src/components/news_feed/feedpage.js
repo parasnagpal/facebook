@@ -84,11 +84,13 @@ class Page extends React.Component{
         }
     }
 
-    like(post){
+    like(post,username){
         //fetch post
         let like_updated_post=this.state.posts[post.postid];
+        if(!like_updated_post.likes)
+            like_updated_post.likes=[];
         //update like
-        like_updated_post.likes++;
+        like_updated_post.likes.push(username);
         let updated_posts=this.state.posts;
         updated_posts[post.postid]=like_updated_post
         //update state
@@ -119,10 +121,10 @@ class Page extends React.Component{
         firebase.database().ref('/posts').set(updated_posts)
     }
 
-    postactions(post,code){
+    postactions(post,code,username){
 
         switch(code){
-            case 'L':this.like(post);
+            case 'L':this.like(post,username);
                      break;
             case 'C':this.comment(post,post.comment)
                      break;            
